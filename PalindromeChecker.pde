@@ -16,9 +16,21 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
+  String bbb = new String();
+  
+  for(int i=0; i<word.length(); i++){
+    if(Character.isLetter(word.charAt(i))){
+      bbb= bbb + (word.substring(i,i+1));
+    }
+  }
+  bbb = bbb.toLowerCase();
+  if(bbb.equals(reverse(word))){
+    return true;
+  }
   return false;
 }
+
+
 public String reverse(String str)
 {
 
@@ -26,14 +38,16 @@ public String reverse(String str)
     //your code here
     ArrayList <String> bob = new ArrayList ();
 
-    for(int i=0; i<sNew.length(); i++){
-      if(sNew.substring(i,i+1)==" "){
-          i++;
-      }else{
-        bob.add(sNew.substring(i,i+1));
+    for(int i=0; i<str.length(); i++){
+      if(Character.isLetter(str.charAt(i))){
+        sNew= sNew + (str.substring(i,i+1));
       }
     }
-    return sNew;
+    String aaa = new String();
+    for(int i=sNew.length(); i>0;i--){
+      aaa+=sNew.substring(i-1,i);
+    }
+    aaa =aaa.toLowerCase();
+    return aaa;
 }
-
 
